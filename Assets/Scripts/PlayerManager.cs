@@ -21,6 +21,7 @@ public class PlayerManager : MonoBehaviour
     public bool isAttack = false;
     public int Health { get { return health; } }
 
+    GameManager gameManager;
     Animator animator;
     Rigidbody2D rb;
     BoxCollider2D boxCollider;
@@ -33,6 +34,9 @@ public class PlayerManager : MonoBehaviour
         boxCollider = GetComponent<BoxCollider2D>();
         audioSource = GetComponent<AudioSource>(); 
 
+        gameManager = FindObjectOfType<GameManager>();
+
+        Time.timeScale = 1.0f;
         isAlive = true;
     }
 
@@ -66,15 +70,28 @@ public class PlayerManager : MonoBehaviour
 
     IEnumerator Attack()
     {
-        float[] times = { 0.1f, 0.8f };
+        //float[] times = { 0.1f, 1.2f };
 
-        for (int i = 0; i < times.Length; i++)
-        {
-            yield return new WaitForSeconds(times[i]);
-            audioSource.pitch = UnityEngine.Random.Range(randomPitch.Item1, randomPitch.Item2);
-            if (!audioSource.isPlaying) audioSource.Play();
-            isAttack = !isAttack;
-        }
+        //for (int i = 0; i < times.Length; i++)
+        //{
+        //    yield return new WaitForSeconds(times[i]);
+        //    audioSource.pitch = UnityEngine.Random.Range(randomPitch.Item1, randomPitch.Item2);
+        //    if (!audioSource.isPlaying) audioSource.Play();
+        //    isAttack = !isAttack;
+        //}
+
+        yield return new WaitForSeconds(0.1f);
+        audioSource.pitch = UnityEngine.Random.Range(randomPitch.Item1, randomPitch.Item2);
+        if (!audioSource.isPlaying) audioSource.Play();
+        isAttack = true;
+
+        yield return new WaitForSeconds(0.7f);
+        audioSource.pitch = UnityEngine.Random.Range(randomPitch.Item1, randomPitch.Item2);
+        if (!audioSource.isPlaying) audioSource.Play();
+        yield return new WaitForSeconds(0.5f);
+        isAttack = false;
+
+
     }
 
     public void Run()
@@ -95,6 +112,7 @@ public class PlayerManager : MonoBehaviour
             yield return new WaitForSeconds(0.3f);
         }
         gameObject.SetActive(false);
+        gameManager.ExitActivate();
         yield return null;
     }
 
@@ -112,6 +130,13 @@ public class PlayerManager : MonoBehaviour
         boxCollider.enabled = false;
         rb.simulated = false;
         HeroState(State.death);
+        StartCoroutine(ExitAfterDeath());
+    }
+
+    IEnumerator ExitAfterDeath()
+    {
+        yield return new WaitForSeconds(3);
+        gameManager.ExitActivate();
     }
 
     void HeroState(State stateHeto)

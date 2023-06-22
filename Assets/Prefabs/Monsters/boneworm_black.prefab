@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1580929478254521981}
   - component: {fileID: 1580929478254521980}
   - component: {fileID: 1580929478254521983}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: boneworm_black
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -149,8 +149,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   points: 3
-  health: 3
-  speed: 2
+  health: 2
+  speed: 5
   damage: {fileID: 8300000, guid: a0eaf97db85ecaf4fb9ee96652c6c0de, type: 3}
 --- !u!95 &1580929478254521980
 Animator:

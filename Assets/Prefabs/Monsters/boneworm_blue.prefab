@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8663302641310843964}
   - component: {fileID: 8663302641310843966}
   - component: {fileID: 8663302641310843965}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: boneworm_blue
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -149,8 +149,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   points: 2
-  health: 3
-  speed: 1.5
+  health: 2
+  speed: 3
   damage: {fileID: 8300000, guid: a0eaf97db85ecaf4fb9ee96652c6c0de, type: 3}
 --- !u!95 &8663302641310843966
 Animator:
