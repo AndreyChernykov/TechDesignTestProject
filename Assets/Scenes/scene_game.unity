@@ -355,6 +355,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Foreground
       objectReference: {fileID: 0}
+    - target: {fileID: 1360051490742809889, guid: aba8f065ef228ad4b8f0089a240ac0a2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7433460494946931413, guid: aba8f065ef228ad4b8f0089a240ac0a2, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aba8f065ef228ad4b8f0089a240ac0a2, type: 3}
 --- !u!1001 &3294205551904380618
