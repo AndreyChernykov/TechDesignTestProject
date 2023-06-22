@@ -12,6 +12,11 @@ public class MainMenu : MonoBehaviour
         StartCoroutine(LoadScene());
     }
 
+    public void Exit()
+    {
+        Application.Quit();
+    }
+
     IEnumerator LoadScene()
     {
         yield return null;
