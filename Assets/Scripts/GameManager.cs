@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
-
+using UnityEngine.Localization;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI textPoints;
@@ -37,8 +37,9 @@ public class GameManager : MonoBehaviour
 
     void DataDisplayed()
     {
-        textPoints.text = "Points " + points;
-        textHealth.text = "Health " + playerManager.Health;
+         
+        textPoints.text = points.ToString();
+        textHealth.text = playerManager.Health.ToString();
     }
 
     IEnumerator SpawnMonsters()
